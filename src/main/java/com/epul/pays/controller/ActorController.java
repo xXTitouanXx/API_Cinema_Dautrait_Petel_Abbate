@@ -28,7 +28,7 @@ public class ActorController {
 
         List<IActor> MesActeurs = null;
         try {
-            MesActeurs =  unActorService.listerLesActeurs();
+            MesActeurs = unActorService.listerLesActeurs();
 
         } catch (MonException e) {
             ResponseEntity.notFound().build();
