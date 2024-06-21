@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -19,29 +20,24 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping("/getMovies")
-    public List<IMovie> getMovies() {
-        List<IMovie> mesMovies = null;
+    public ResponseEntity<List<IMovie>> getMovies() {
         try {
-            mesMovies = movieService.listerLesMovies();
-        } catch (MonException e) {
-            ResponseEntity.notFound().build();
+            List<IMovie> movies = movieService.listerLesMovies();
+            return ResponseEntity.ok(movies);
         } catch (Exception e) {
-            ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
-        return mesMovies;
     }
 
-    /*@GetMapping("/getMovie/{id}")
-    public ResponseEntity<IMovie> getMovie(@PathVariable Integer id) {
+    @GetMapping("/getMovie/{id}")
+    public ResponseEntity<Optional<EntiteMovie>> getMovie(@PathVariable Long id) {
         try {
-            EntiteMovie movie = movieService.obtenirMovieParId(id);
+            Optional<EntiteMovie> movie = movieService.obtenirMovieParId(id);
             return ResponseEntity.ok(movie);
         } catch (MonException e) {
             return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
-    }*/
-
-    // Ajoutez d'autres endpoints ici si nécessaire (ex. POST, PUT, DELETE)
+    }
 }

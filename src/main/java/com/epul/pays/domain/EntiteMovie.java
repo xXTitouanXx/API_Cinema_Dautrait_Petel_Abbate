@@ -1,5 +1,6 @@
 package com.epul.pays.domain;
 
+import com.epul.pays.dto.IMovie;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name="movie")
-public class EntiteMovie implements Serializable {
+public class EntiteMovie implements Serializable, IMovie {
     private static final long serialVersionUID = 1L;
 
     @Id
