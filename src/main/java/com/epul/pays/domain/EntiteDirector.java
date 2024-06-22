@@ -16,10 +16,10 @@ public class EntiteDirector implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable = false, unique = true)
-    private Long id;
+    private long id;
 
     @Column(name="gender", nullable = false)
-    private Integer gender;
+    private long gender;
 
     @Column(name="name", nullable = false, length = 255)
     private String name;
@@ -46,19 +46,19 @@ public class EntiteDirector implements Serializable {
 
     // Getters and setters for all fields
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getGender() {
+    public long getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(long gender) {
         this.gender = gender;
     }
 

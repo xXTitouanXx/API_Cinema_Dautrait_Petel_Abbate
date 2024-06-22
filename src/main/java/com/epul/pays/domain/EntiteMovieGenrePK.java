@@ -6,24 +6,24 @@ import java.util.Objects;
 public class EntiteMovieGenrePK implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private Integer movie;
-    private Integer genre;
+    private long movie;
+    private long genre;
 
     // Getters and setters for all fields
 
-    public Integer getMovie() {
+    public long getMovie() {
         return movie;
     }
 
-    public void setMovie(Integer movie) {
+    public void setMovie(long movie) {
         this.movie = movie;
     }
 
-    public Integer getGenre() {
+    public long getGenre() {
         return genre;
     }
 
-    public void setGenre(Integer genre) {
+    public void setGenre(long genre) {
         this.genre = genre;
     }
 

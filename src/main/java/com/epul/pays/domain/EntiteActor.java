@@ -17,10 +17,10 @@ public class EntiteActor implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id", nullable = false, unique = true)
-	private Integer id;
+	private long id;
 
 	@Column(name="gender", nullable = false)
-	private Integer gender;
+	private long gender;
 
 	@Column(name="name", nullable = false, length = 255)
 	private String name;
@@ -48,19 +48,19 @@ public class EntiteActor implements Serializable {
 	public EntiteActor() {
 	}
 
-	public Integer getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public Integer getGender() {
+	public long getGender() {
 		return gender;
 	}
 
-	public void setGender(Integer gender) {
+	public void setGender(long gender) {
 		this.gender = gender;
 	}
 

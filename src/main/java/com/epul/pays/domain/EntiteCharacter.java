@@ -5,23 +5,23 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "character")
+@Table(name = "movie_character")
 public class EntiteCharacter implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
-    private Integer id;
+    private long id;
 
     @Column(name = "name", nullable = false, length = 255)
     private String name;
 
     @Column(name = "gender", nullable = false)
-    private Integer gender;
+    private long gender;
 
     @Column(name = "order", nullable = false)
-    private Integer order;
+    private long order;
 
     @Column(name = "profile_path", length = 255)
     private String profilePath;
@@ -39,7 +39,7 @@ public class EntiteCharacter implements Serializable {
 
     // Getters and setters for all fields
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
@@ -55,19 +55,19 @@ public class EntiteCharacter implements Serializable {
         this.name = name;
     }
 
-    public Integer getGender() {
+    public long getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(long gender) {
         this.gender = gender;
     }
 
-    public Integer getOrder() {
+    public long getOrder() {
         return order;
     }
 
-    public void setOrder(Integer order) {
+    public void setOrder(long order) {
         this.order = order;
     }
 

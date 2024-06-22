@@ -1,7 +1,6 @@
 package com.epul.pays.controller;
 
 import com.epul.pays.domain.EntiteGenre;
-import com.epul.pays.dto.IGenre;
 import com.epul.pays.mesExceptions.MonException;
 import com.epul.pays.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -19,8 +19,8 @@ public class GenreController {
     private GenreService genreService;
 
     @GetMapping("/getGenres")
-    public List<IGenre> getGenres() {
-        List<IGenre> mesGenres = null;
+    public List<EntiteGenre> getGenres() {
+        List<EntiteGenre> mesGenres = null;
         try {
             mesGenres = genreService.listerLesGenres();
         } catch (MonException e) {
@@ -31,17 +31,17 @@ public class GenreController {
         return mesGenres;
     }
 
-    /*@GetMapping("/getGenre/{id}")
-    public ResponseEntity<IGenre> getGenre(@PathVariable Integer id) {
+    @GetMapping("/getGenre/{id}")
+    public ResponseEntity<Optional<EntiteGenre>> getGenre(@PathVariable long id) {
         try {
-            EntiteGenre genre = genreService.obtenirGenreParId(id);
+            Optional<EntiteGenre> genre = genreService.obtenirGenreParId(id);
             return ResponseEntity.ok(genre);
         } catch (MonException e) {
             return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
-    }*/
+    }
 
     // Ajoutez d'autres endpoints ici si nécessaire (ex. POST, PUT, DELETE)
 }

@@ -12,7 +12,7 @@ public class EntiteGenre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
-    private Integer id;
+    private long id;
 
     @Column(name = "name", nullable = false, length = 255)
     private String name;
@@ -22,11 +22,11 @@ public class EntiteGenre implements Serializable {
 
     // Getters and setters for all fields
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 

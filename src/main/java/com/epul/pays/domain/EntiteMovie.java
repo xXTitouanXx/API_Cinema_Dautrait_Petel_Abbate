@@ -1,23 +1,24 @@
 package com.epul.pays.domain;
 
-import com.epul.pays.dto.IMovie;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * The persistent class for the movie database table.
  */
 @Entity
 @Table(name="movie")
-public class EntiteMovie implements Serializable, IMovie {
+public class EntiteMovie implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable = false, unique = true)
-    private Long id;
+    private long id;
 
     @Column(name="title", nullable = false, length = 255)
     private String title;
@@ -49,10 +50,10 @@ public class EntiteMovie implements Serializable, IMovie {
     private EntiteDirector director;
 
     @Column(name="budget")
-    private Long budget;
+    private long budget;
 
     @Column(name="revenue")
-    private Long revenue;
+    private long revenue;
 
     @Column(name="overview", columnDefinition = "TEXT")
     private String overview;
@@ -62,11 +63,11 @@ public class EntiteMovie implements Serializable, IMovie {
 
     // Getters and setters for all fields
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -142,19 +143,19 @@ public class EntiteMovie implements Serializable, IMovie {
         this.director = director;
     }
 
-    public Long getBudget() {
+    public long getBudget() {
         return budget;
     }
 
-    public void setBudget(Long budget) {
+    public void setBudget(long budget) {
         this.budget = budget;
     }
 
-    public Long getRevenue() {
+    public long getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(Long revenue) {
+    public void setRevenue(long revenue) {
         this.revenue = revenue;
     }
 

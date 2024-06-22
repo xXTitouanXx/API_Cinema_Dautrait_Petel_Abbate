@@ -1,10 +1,12 @@
 package com.epul.pays.controller;
 
 import com.epul.pays.domain.EntiteCharacter;
-import com.epul.pays.dto.ICharacter;
+import com.epul.pays.dto.CharacterCreateDTO;
+import com.epul.pays.dto.CharacterUpdateDTO;
 import com.epul.pays.mesExceptions.MonException;
 import com.epul.pays.service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +21,8 @@ public class CharacterController {
     private CharacterService characterService;
 
     @GetMapping("/getCharacters")
-    public List<ICharacter> getCharacters() {
-        List<ICharacter> mesCharacters = null;
+    public List<EntiteCharacter> getCharacters() {
+        List<EntiteCharacter> mesCharacters = null;
         try {
             mesCharacters = characterService.listerLesCharacters();
         } catch (MonException e) {
@@ -31,17 +33,33 @@ public class CharacterController {
         return mesCharacters;
     }
 
-    /*@GetMapping("/getCharacter/{id}")
-    public ResponseEntity<ICharacter> getCharacter(@PathVariable Integer id) {
+    @PostMapping
+    public ResponseEntity<?> createCharacter(@RequestBody CharacterCreateDTO character) {
         try {
-            EntiteCharacter character = characterService.obtenirCharacterParId(id);
-            return ResponseEntity.ok(character);
-        } catch (MonException e) {
-            return ResponseEntity.notFound().build();
+            EntiteCharacter createdCharacter = characterService.createCharacter(character);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdCharacter);
         } catch (Exception e) {
-            return ResponseEntity.status(500).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
-    }*/
+    }
 
-    // Ajoutez d'autres endpoints ici si nécessaire (ex. POST, PUT, DELETE)
+    @PutMapping
+    public ResponseEntity<?> updateCharacter(@RequestBody CharacterUpdateDTO characterUpdateDTO) {
+        try {
+            return ResponseEntity.ok(characterService.updateCharacter(characterUpdateDTO));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteCharacter(@PathVariable long id) {
+        try {
+            characterService.deleteCharacter(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
+
 }

@@ -1,25 +1,31 @@
 package com.epul.pays.service;
 
-import com.epul.pays.dto.IActor;
+import com.epul.pays.domain.EntiteActor;
+import com.epul.pays.domain.EntiteMovie;
+import com.epul.pays.mesExceptions.MonException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.epul.pays.repositories.ActorRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ActorService {
 
-    private ActorRepository unActorRepository;
+    private ActorRepository actorRepository;
 
     // on initialise à travers le constructeur
     @Autowired
     public ActorService(ActorRepository ActorRepository) {
-        this.unActorRepository = ActorRepository;
+        this.actorRepository = ActorRepository;
     }
 
-    public List<IActor> listerLesActeurs () {
-        return unActorRepository.findAllActors();
+    public List<EntiteActor> listerLesActeurs () {
+        return actorRepository.findAll();
     }
 
+    public Optional<EntiteActor> obtenirActeurParId(long id) throws MonException {
+        return actorRepository.findById(id);
+    }
 }
