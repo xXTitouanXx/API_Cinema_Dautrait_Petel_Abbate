@@ -31,7 +31,7 @@ public class CharacterService {
         return characterRepository.findAll();
     }
 
-    public EntiteCharacter createCharacter(CharacterCreateDTO character) throws Exception {
+        public EntiteCharacter createCharacter(CharacterCreateDTO character) throws Exception {
         try {
             EntiteMovie movie = movieRepository.findById(character.getMovieId())
                     .orElseThrow();
