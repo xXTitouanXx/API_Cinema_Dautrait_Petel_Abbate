@@ -1,6 +1,5 @@
 package com.epul.pays.service;
 
-import com.epul.pays.domain.EntiteActor;
 import com.epul.pays.domain.EntiteGenre;
 import com.epul.pays.mesExceptions.MonException;
 import org.springframework.beans.factory.annotation.Autowired;

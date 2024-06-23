@@ -8,13 +8,13 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class ProjetCinemaSB extends SpringBootServletInitializer {
 
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(ProjetCinemaSB.class);
-	}
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ProjetCinemaSB.class);
+    }
 
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(ProjetCinemaSB.class, args);
-	}
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(ProjetCinemaSB.class, args);
+    }
 }
 
 

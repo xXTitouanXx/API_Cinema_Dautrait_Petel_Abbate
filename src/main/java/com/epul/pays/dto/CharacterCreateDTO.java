@@ -19,9 +19,11 @@ public class CharacterCreateDTO {
         this.order = order;
         this.profilePath = profilePath;
     }
+
     public String getProfilePath() {
         return profilePath;
     }
+
     public void setProfilePath(String profilePath) {
         this.profilePath = profilePath;
     }

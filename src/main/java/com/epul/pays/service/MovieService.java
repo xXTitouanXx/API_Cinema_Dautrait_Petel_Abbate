@@ -1,11 +1,9 @@
 package com.epul.pays.service;
 
-import com.epul.pays.domain.EntiteDirector;
 import com.epul.pays.domain.EntiteMovie;
 import com.epul.pays.domain.EntiteMovieGenre;
 import com.epul.pays.mesExceptions.MonException;
 import com.epul.pays.repositories.CharacterRepository;
-import com.epul.pays.repositories.GenreRepository;
 import com.epul.pays.repositories.MovieGenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,7 @@
 package com.epul.pays.domain;
 
 import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -11,51 +12,51 @@ import java.util.Set;
  * The persistent class for the movie database table.
  */
 @Entity
-@Table(name="movie")
+@Table(name = "movie")
 public class EntiteMovie implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
-    @Column(name="title", nullable = false, length = 255)
+    @Column(name = "title", nullable = false, length = 255)
     private String title;
 
-    @Column(name="original_title", nullable = false, length = 255)
+    @Column(name = "original_title", nullable = false, length = 255)
     private String originalTitle;
 
-    @Column(name="original_language", nullable = false, length = 10)
+    @Column(name = "original_language", nullable = false, length = 10)
     private String originalLanguage;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="release_date", nullable = false)
+    @Column(name = "release_date", nullable = false)
     private Date releaseDate;
 
-    @Column(name="runtime", nullable = false)
+    @Column(name = "runtime", nullable = false)
     private Short runtime;
 
-    @Column(name="popularity", nullable = false)
+    @Column(name = "popularity", nullable = false)
     private Double popularity;
 
-    @Column(name="poster_path", length = 255)
+    @Column(name = "poster_path", length = 255)
     private String posterPath;
 
-    @Column(name="backdrop_path", length = 255)
+    @Column(name = "backdrop_path", length = 255)
     private String backdropPath;
 
     @ManyToOne
-    @JoinColumn(name="director_id", nullable = false)
+    @JoinColumn(name = "director_id", nullable = false)
     private EntiteDirector director;
 
-    @Column(name="budget")
+    @Column(name = "budget")
     private long budget;
 
-    @Column(name="revenue")
+    @Column(name = "revenue")
     private long revenue;
 
-    @Column(name="overview", columnDefinition = "TEXT")
+    @Column(name = "overview", columnDefinition = "TEXT")
     private String overview;
 
     public EntiteMovie() {
@@ -192,4 +193,3 @@ public class EntiteMovie implements Serializable {
         return Objects.hash(id, title, originalTitle, originalLanguage, releaseDate, runtime, popularity, posterPath, backdropPath, director, budget, revenue, overview);
     }
 }
-

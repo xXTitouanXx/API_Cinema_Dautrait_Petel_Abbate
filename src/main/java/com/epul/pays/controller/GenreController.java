@@ -42,6 +42,4 @@ public class GenreController {
             return ResponseEntity.status(500).build();
         }
     }
-
-    // Ajoutez d'autres endpoints ici si nécessaire (ex. POST, PUT, DELETE)
 }

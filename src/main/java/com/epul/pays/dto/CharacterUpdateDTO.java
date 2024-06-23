@@ -54,6 +54,7 @@ public class CharacterUpdateDTO {
         return characterId;
     }
 
-    public void setCharacterId(long characterId) {}
+    public void setCharacterId(long characterId) {
+    }
 
 }

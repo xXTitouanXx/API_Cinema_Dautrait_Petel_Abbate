@@ -1,6 +1,7 @@
 package com.epul.pays.domain;
 
 import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -9,36 +10,36 @@ import java.util.Objects;
  * The persistent class for the director database table.
  */
 @Entity
-@Table(name="director")
+@Table(name = "director")
 public class EntiteDirector implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
-    @Column(name="gender", nullable = false)
+    @Column(name = "gender", nullable = false)
     private long gender;
 
-    @Column(name="name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false, length = 255)
     private String name;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="birthday", nullable = false)
+    @Column(name = "birthday", nullable = false)
     private Date birthday;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="deathday")
+    @Column(name = "deathday")
     private Date deathday;
 
-    @Column(name="place_of_birth", length = 255)
+    @Column(name = "place_of_birth", length = 255)
     private String placeOfBirth;
 
-    @Column(name="profile_path", length = 255)
+    @Column(name = "profile_path", length = 255)
     private String profilePath;
 
-    @Column(name="biography", columnDefinition = "TEXT")
+    @Column(name = "biography", columnDefinition = "TEXT")
     private String biography;
 
     public EntiteDirector() {

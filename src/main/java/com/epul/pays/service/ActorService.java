@@ -20,7 +20,7 @@ public class ActorService {
         this.actorRepository = ActorRepository;
     }
 
-    public List<EntiteActor> listerLesActeurs () {
+    public List<EntiteActor> listerLesActeurs() {
         return actorRepository.findAll();
     }
 

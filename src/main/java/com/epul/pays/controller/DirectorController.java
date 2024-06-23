@@ -29,6 +29,4 @@ public class DirectorController {
         }
         return mesDirectors;
     }
-
-    // Ajoutez d'autres endpoints ici si nécessaire (ex. POST, PUT, DELETE)
 }

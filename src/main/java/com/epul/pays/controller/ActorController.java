@@ -2,14 +2,12 @@ package com.epul.pays.controller;
 
 import com.epul.pays.domain.EntiteActor;
 import com.epul.pays.domain.EntiteCharacter;
-import com.epul.pays.domain.EntiteMovie;
 import com.epul.pays.mesExceptions.MonException;
 import com.epul.pays.service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.epul.pays.service.ActorService;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +16,6 @@ import java.util.Optional;
 @CrossOrigin
 @RequestMapping("/actor")
 public class ActorController {
-
 
     @Autowired
     private ActorService actorService;
