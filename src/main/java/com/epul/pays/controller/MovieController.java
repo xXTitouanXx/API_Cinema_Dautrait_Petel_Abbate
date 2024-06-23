@@ -1,5 +1,6 @@
 package com.epul.pays.controller;
 
+import com.epul.pays.domain.EntiteCharacter;
 import com.epul.pays.domain.EntiteDirector;
 import com.epul.pays.domain.EntiteGenre;
 import com.epul.pays.domain.EntiteMovie;
@@ -48,6 +49,11 @@ public class MovieController {
         } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
+    }
+
+    @GetMapping("/getMovie/{id}/characters")
+    public List<EntiteCharacter> getCharactersByMovieId(@PathVariable Long id) {
+        return movieService.findCharactersByMovieId(id);
     }
 
     @GetMapping("/genres")

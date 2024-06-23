@@ -1,5 +1,7 @@
 package com.epul.pays.service;
 
+import com.epul.pays.domain.EntiteCharacter;
+import com.epul.pays.domain.EntiteDirector;
 import com.epul.pays.domain.EntiteMovie;
 import com.epul.pays.domain.EntiteMovieGenre;
 import com.epul.pays.mesExceptions.MonException;
@@ -44,5 +46,9 @@ public class MovieService {
 
     public List<EntiteMovie> getMoviesByDirector(Long directorId) {
         return movieRepository.findByDirectorId(directorId);
+    }
+
+    public List<EntiteCharacter> findCharactersByMovieId(Long id) {
+        return characterRepository.findByMovieId(id);
     }
 }
