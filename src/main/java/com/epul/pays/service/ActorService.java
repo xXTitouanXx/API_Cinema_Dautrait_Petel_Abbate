@@ -1,7 +1,6 @@
 package com.epul.pays.service;
 
 import com.epul.pays.domain.EntiteActor;
-import com.epul.pays.domain.EntiteMovie;
 import com.epul.pays.mesExceptions.MonException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
