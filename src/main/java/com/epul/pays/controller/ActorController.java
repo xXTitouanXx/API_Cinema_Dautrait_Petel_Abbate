@@ -55,7 +55,7 @@ public class ActorController {
     }
 
     @GetMapping("/getActeurs/{id}/characters")
-    public List<EntiteCharacter> getCharactersByActor(@PathVariable Long actorId) {
-        return characterService.getCharactersByActor(actorId);
+    public List<EntiteCharacter> getCharactersByActor(@PathVariable Long id) {
+        return characterService.getCharactersByActor(id);
     }
 }
